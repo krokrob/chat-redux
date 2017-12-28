@@ -1,5 +1,6 @@
 import React from 'react';
-import MessageList from '../containers/MessageList'
+import MessageList from '../containers/MessageList';
+import ChannelList from '../containers/ChannelList';
 
 const App = () => {
   return (
@@ -12,14 +13,7 @@ const App = () => {
             className="img-circle" />
         </div>
       </div>
-      <div className="channels">
-        <h4><strong>Redux Chat</strong></h4>
-        <ul className="list-unstyled">
-          <li className="active">#general</li>
-          <li>#react</li>
-          <li>#paris</li>
-        </ul>
-      </div>
+      <ChannelList />
       <MessageList />
     </div>
   );

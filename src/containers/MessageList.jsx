@@ -19,11 +19,22 @@ class MessageList extends Component {
     intervalId.clearInterval;
   }
 
+  componentDidUpdate() {
+    const height = this.refs.messageList.scrollHeight;
+    this.refs.messageList.scrollTop = height;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedChannel !== this.props.selectedChannel) {
+      this.props.fetchMessages(nextProps.selectedChannel);
+    }
+  }
+
   render() {
     return(
       <div className="channel">
         <h4><strong>Channel #{this.props.selectedChannel}</strong></h4>
-        <div className="message-list">
+        <div className="message-list" ref="messageList" >
           {this.props.messages.map( (message) =>
             <Message message={message} key={message.createdAt} />)}
         </div>
