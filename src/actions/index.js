@@ -4,7 +4,7 @@ export const CREATE_MESSAGE = 'CREATE_MESSAGE';
 export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 
 export function fetchMessages(channel) {
-  const promise = fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`)
+  const promise = fetch(`https://kevin-chat.herokuapp.com/${channel}/messages`)
     .then(response => response.json());
 
   return {
@@ -14,7 +14,7 @@ export function fetchMessages(channel) {
 }
 
 export function createMessage(channel, author, content) {
-  const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
+  const url = `https://kevin-chat.herokuapp.com/${channel}/messages`;
   const body = { author: author, content: content };
   const promise = fetch(url, {
     method: 'POST',
