@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import moment from 'moment-timezone';
 import { hashCode } from '../helpers/strToHex';
 import { intToRGB } from '../helpers/strToHex'
+import {emojify} from 'react-emojione';
 
 class Message extends Component {
   render() {
@@ -12,11 +13,13 @@ class Message extends Component {
           <span
             className="message-author"
             style={style} >
-            <strong>{this.props.message.author} </strong>
+            <strong>{emojify(this.props.message.author, {output: 'unicode'})} </strong>
           </span>
           - {moment(this.props.message.createdAt).format('h:mm:ss')}
         </div>
-        <div className="message-content">{this.props.message.content}</div>
+        <div className="message-content">
+          {emojify(this.props.message.content, {output: 'unicode'})}
+        </div>
       </div>
     );
   }
