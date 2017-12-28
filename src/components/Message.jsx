@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import moment from 'moment-timezone';
 import { hashCode } from '../helpers/strToHex';
 import { intToRGB } from '../helpers/strToHex'
-import {emojify} from 'react-emojione';
+import { emojify } from 'react-emojione';
 
 class Message extends Component {
   render() {
